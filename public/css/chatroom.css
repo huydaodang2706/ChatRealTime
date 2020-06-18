@@ -1,0 +1,89 @@
+.chat_area {
+    width: 800px;
+    background-color: #ffffff;
+    float: left;
+    min-height: 450px;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.menu_area {
+    margin-left: 30px;
+    width: 270px;
+    background-color: #ffffff;
+    min-height: 450px;
+    float: left;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19);
+    justify-content: center;
+}
+
+.menu_area ul {
+    margin: 0 auto;
+    padding: 0px;
+    width: 90%;
+    margin-top: 15px;
+    border-radius: 6px;
+}
+
+.menu_area ul li {
+    list-style: none;
+    min-height: 40px;
+    background-color: black;
+}
+
+.menu_area ul li:nth-child(1) {
+    border-radius: 6px 6px 0 0;
+}
+
+.menu_area ul li:nth-last-child(1) {
+    border-radius: 0 0 6px 6px;
+}
+
+.menu_area ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    display: block;
+    width: 100%;
+    line-height: 40px;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.menu_area ul li a i {
+    color: #ffffff;
+}
+
+.menu_area ul li:hover {
+    background-color: #363636;
+}
+
+.message_area {
+    overflow-y: auto;
+    min-height: 400px;
+    background-color: bisque;
+}
+
+.message_input {
+    width: 720px;
+}
+
+.input_area {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.input_area button {
+    background-color: rgb(255, 105, 19);
+    width: 50px;
+    height: 35px;
+    border: 0;
+    border-radius: 6px;
+}
+
+.input_area button i {
+    color: #ffffff;
+    width: 30px;
+    height: 20px;
+}

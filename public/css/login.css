@@ -1,0 +1,233 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    font-size: 13px;
+    font-family: "Lato", "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
+.menu_top {
+    background: #000000;
+    min-height: 45px;
+}
+
+.main_login {
+    background: #ffffff;
+    min-height: 100px;
+    width: 1100px;
+    margin: auto;
+}
+
+.menu_main {
+    width: 1100px;
+    margin: auto;
+}
+
+.menu_main ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+.menu_main ul li {
+    list-style: none;
+    float: left;
+    color: white;
+}
+
+.menu_main ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    display: block;
+    height: 45px;
+    line-height: 45px;
+    padding: 0px 20px 0px 20px;
+}
+
+.menu_main ul li:hover {
+    background-color: #3a2b2e;
+}
+
+.menu_right {
+    /* color: #ffffff; */
+    float: right;
+}
+
+.dropbtn {
+    background-color: #000000;
+    color: white;
+    line-height: 45px;
+    font-size: 13px;
+    border: none;
+    cursor: pointer;
+    min-width: 100px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3a2b2e;
+}
+
+.logInOutbtn {
+    background: #4958da;
+    border-radius: 2px;
+    border: none;
+    color: #ffffff;
+    font-size: 13px;
+    padding: 8px 20px 8px 20px;
+    text-decoration: none;
+}
+
+.logInOutbtn:hover {
+    background-color: #2e3585;
+}
+
+.logItem {
+    line-height: 45px;
+    min-width: 100px;
+    clear: both;
+    float: right;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.signUpbtn {
+    background: rgb(255, 136, 0);
+    border-radius: 4px;
+    border: none;
+    color: #ffffff;
+    font-size: 17px;
+    padding: 13px 70px 13px 70px;
+    text-decoration: none;
+}
+
+.signUpbtn:hover {
+    background: #f26202;
+}
+
+.login_box {
+    width: 100%;
+    min-height: 250px;
+    background-color: rgb(216, 211, 205);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    align-items: center;
+    justify-content: center;
+}
+
+.box_left {
+    width: 50%;
+    float: left;
+    min-height: 250px;
+    border-right: 1px solid #b1b1b1;
+    /* background-color: lightgrey; */
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.box_right {
+    width: 50%;
+    min-height: 250px;
+    float: left;
+    text-align: center;
+}
+
+.signup_center {
+    display: inline-block;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.box_left label {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.input_field {
+    border: 2px solid #aaa;
+    border-radius: 4px;
+    margin: 8px 0;
+    outline: none;
+    padding: 8px;
+    box-sizing: border-box;
+    transition: .3s;
+}
+
+.input_field:focus {
+    border-color: dodgerblue;
+    box-shadow: 0 0 8px 0 dodgerblue;
+}
+
+.inputWithIcon .input_field {
+    padding-left: 40px;
+}
+
+.inputWithIcon {
+    position: relative;
+}
+
+.inputWithIcon i {
+    position: absolute;
+    left: 0;
+    top: 13px;
+    padding: 9px 8px;
+    color: #aaa;
+    transition: .3s;
+}
+
+.inputWithIcon.input_field:focus+i {
+    color: dodgerblue;
+}
+
+.box_left input[type=submit] {
+    background: #4958da;
+    border-radius: 2px;
+    border: none;
+    color: #ffffff;
+    font-size: 13px;
+    padding: 11px 25px 11px 25px;
+    text-decoration: none;
+}
+
+.box_left input[type=submit]:hover {
+    background-color: #2e3585;
+}
+
+.box_left form {
+    display: inline-block;
+    margin-top: 30px;
+}
+
+.box_left form label {
+    float: left;
+}

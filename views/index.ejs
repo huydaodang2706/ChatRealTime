@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>MessageMe</title>
+    <link rel="stylesheet" type="text/css" href="/css/login.css" />
+    <link rel="stylesheet" type="text/css" href="/css/chatroom.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="menu_top">
+        <div class="menu_main">
+            <ul>
+                <li><a href="#" title="Chat Room">Chat Room</a></li>
+                <li><a href="#" title="Messages">Messages</a></li>
+            </ul>
+            <div class="menu_right">
+                <div class="dropdown">
+                    <button class="dropbtn">Account</button>
+                    <div class="dropdown-content">
+                        <a href="/logout">Log out</a>
+                        <a href="/signup">Sign up</a>
+                    </div>
+                </div>
+                <div class="logItem">
+                    <a href="#" class="logInOutbtn">Sign up</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main_login">
+        <img src="/img/cafe4.png" width="120" height="120" class="center" style="margin-top: 20px;">
+        <h1 style="text-align: center;">Say something</h1>
+        <div class="chat_area">
+            <div class="message_area">
+
+            </div>
+            <div class="input_area">
+                <input type="text" class="input_field message_input" name="message" placeholder="Enter message...">
+                <button type="submit">
+                    <i class="fa fa-comments fa-lg fa-fw" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+        <div class="menu_area">
+            <ul>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-home fa-lg fa-fw" aria-hidden="true"></i> Home
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-envelope fa-lg fa-fw" aria-hidden="true"></i> Messages
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-users fa-lg fa-fw" aria-hidden="true"></i> Friends
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

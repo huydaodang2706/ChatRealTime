@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>MessageMe</title>
+    <link rel="stylesheet" type="text/css" href="/css/login.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="menu_top">
+        <div class="menu_main">
+            <ul>
+                <li><a href="/chatroom" title="Chat Room">Chat Room</a></li>
+                <li><a href="#" title="Messages">Messages</a></li>
+            </ul>
+            <div class="menu_right">
+                <div class="dropdown">
+                    <button class="dropbtn">Account</button>
+                    <div class="dropdown-content">
+                        <a href="/">Log in</a>
+                        <a href="/signup">Sign up</a>
+                    </div>
+                </div>
+                <div class="logItem">
+                    <a href="/signup" class="logInOutbtn">Sign in</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main_login">
+        <h1 style="text-align: center;">Welcome to MessageMe - A complete chat app</h1>
+        <img src="/img/group_people1.png" width="70" height="70" class="center">
+        <h1 style="text-align: center;">Login to continue</h1>
+        <div class="login_box">
+            <div class="box_left">
+                <form action="/login" method="POST">
+                    <label>Username</label></br>
+                    <div class="inputWithIcon">
+                        <input class="input_field" type="text" placeholder="Username" name="username"></br>
+                        <i class="fa fa-user fa-lg fa-fw" aria-hidden="true"></i>
+                    </div>
+
+                    <label>Password</label></br>
+                    <div class="inputWithIcon">
+                        <input class="input_field" type="password" placeholder="Password" name="password"></br>
+                        <i class="fa fa-lock fa-lg fa-fw" aria-hidden="true"></i>
+                    </div>
+
+
+                    <input type="submit" value="Login">
+                </form>
+            </div>
+            <div class="box_right">
+                <a href="#" class="signUpbtn signup_center">Sign up</a>
+
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
