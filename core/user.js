@@ -26,14 +26,16 @@ User.prototype = {
         let sql = `insert into users(username,password_digest) values (?,?)`;
         pool.query(sql, bind, function(err, result) {
             if (err) throw err;
-            if (result.affectedRows != 1)
+            if (result.affectedRows != 1) {
                 console.log('Error in create an acount');
-            callback(body.username);
+                callback(null);
+            } else
+                callback(body.username);
         });
     },
     login: function(username, password, callback) {
         this.find(username, function(result) {
-            if (result) {
+            if (result[0]) {
                 // console.log(result[1].password);
                 if (bcrypt.compareSync(password, result[0].password_digest)) {
                     // console.log(result[0]);

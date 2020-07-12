@@ -56,3 +56,37 @@ client.connect(err => {
 //     console.log('Hello this is a form');
 //     console.log(req.body);
 // });
+
+$(function({
+    $.ajax({
+        type: 'GET',
+        url: '/api/orders',
+        success: function(orders) {
+            console.log('success', data);
+            $.each(orders, function(i, order) {
+                $('#orders').append('<li>myorder</li>');
+            });
+        },
+        error: function() {
+            alert('error loading orders');
+        }
+    });
+
+    $('#add-order').on('click', function() {
+        var order = {
+            name: $('#name').val(),
+            drink: $('#drink').val()
+        };
+        $.ajax({
+            type: 'POST',
+            url: '/api/orders',
+            data: order,
+            success: function(newOrder) {
+                $('#orders').append('<li>name');
+            },
+            error: function() {
+                alert('error');
+            }
+        });
+    })
+}));

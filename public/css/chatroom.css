@@ -59,8 +59,8 @@
 }
 
 .message_area {
-    overflow-y: auto;
-    min-height: 400px;
+    overflow-y: scroll;
+    height: 400px;
     background-color: bisque;
 }
 
