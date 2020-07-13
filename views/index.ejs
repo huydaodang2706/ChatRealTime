@@ -20,6 +20,9 @@
                 <div class="dropdown">
                     <button class="dropbtn">Account</button>
                     <div class="dropdown-content">
+                        <a href="#">
+                            <%= username %>
+                        </a>
                         <a href="/logout">Log out</a>
                         <a href="/signup">Sign up</a>
                     </div>
@@ -35,14 +38,26 @@
         <img src="/img/cafe4.png" width="120" height="120" class="center" style="margin-top: 20px;">
         <h1 style="text-align: center;">Say something</h1>
         <div class="chat_area">
-            <div class="message_area">
-
+            <div class="message_area" id="message_area">
+                <ul id="messages">
+                    <%  for (let mess of chatMessages){ %>
+                        <li>
+                            <%= mess.username %> :
+                                <%= mess.body %>
+                                    </br>
+                                    <% } %>
+                        </li>
+                </ul>
             </div>
             <div class="input_area">
-                <input type="text" class="input_field message_input" name="message" placeholder="Enter message...">
-                <button type="submit">
-                    <i class="fa fa-comments fa-lg fa-fw" aria-hidden="true"></i>
-                </button>
+                <form id="message_send">
+                    <input id="m" type="text" class="input_field message_input" name="message" placeholder="Enter message..." autocomplete="off">
+                    <input id="user_id" type="text" name="user_id" value="<%= user_id %>" style="display: none;">
+                    <input id="user_name" type="text" name="user_name" value="<%= username %>" style="display: none;">
+                    <button type="submit">
+                        <i class="fa fa-comments fa-lg fa-fw" aria-hidden="true"></i>
+                    </button>
+                </form>
             </div>
         </div>
         <div class="menu_area">
@@ -65,6 +80,13 @@
             </ul>
         </div>
     </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="/javascript/client.js"></script>
+    <script>
+        var element = document.getElementById("message_area");
+        element.scrollTop = element.scrollHeight;
+    </script>
 </body>
 
 </html>

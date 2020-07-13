@@ -2,9 +2,11 @@ const express = require('express');
 const path = require('path');
 const pageRouter = require('./routes/pages');
 const app = express();
+const server = require('http').createServer(app);
 const bodyParser = require('body-parser');
 const session = require('express-session');
 
+const io = require('socket.io')(server);
 
 
 // support parsing of application/json type post data
@@ -49,9 +51,22 @@ app.use((err, req, res, next) => {
     res.send(err.message);
 })
 
+
+io.on('connection', (socket) => {
+    console.log('a user connected!!!');
+    socket.on('disconnect', () => {
+        console.log('user disconnected!!!');
+    });
+    socket.on('chat message', (msg, id, username) => {
+        console.log('message: ' + msg);
+        io.emit('chat message', msg, id, username);
+    });
+});
+
 //setting up the server
-app.listen(3000, function() {
+server.listen(3000, function() {
     console.log('listening on 3000');
 });
+
 
 module.exports = app;
