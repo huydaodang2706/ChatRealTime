@@ -6,6 +6,8 @@
     <title>MessageMe</title>
     <link rel="stylesheet" type="text/css" href="/css/login.css" />
     <link rel="stylesheet" type="text/css" href="/css/chatroom.css" />
+    <link rel="stylesheet" type="text/css" href="/css/dropdown.css" />
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
@@ -73,14 +75,23 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <!-- <a href="#">
                         <i class="fa fa-users fa-lg fa-fw" aria-hidden="true"></i> Friends
-                    </a>
+                    </a> -->
+                    <div class="dropdown">
+                        <a href="#" onclick="myFunction()" class="dropbtn"><i class="fa fa-users fa-lg fa-fw" aria-hidden="true"></i> Friends</a>
+                        <div id="myDropdown" class="dropdown-content">
+                            <a href="#">Link 1</a>
+                            <a href="#">Link 2</a>
+                            <a href="#">Link 3</a>
+                        </div>
+                    </div>
                 </li>
             </ul>
         </div>
     </div>
     <script src="/socket.io/socket.io.js"></script>
+    <script src="/javascript/index.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="/javascript/client.js"></script>
     <script>

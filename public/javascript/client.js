@@ -8,6 +8,11 @@ $(function() {
 
 $(function() {
     var socket = io();
+    var new_username = $('#user_name').val();
+    socket.emit('joinChatRoom', new_username);
+    socket.on('new_user_login', (new_username) => {
+        $('#myDropdown').append(`<a href="#">${new_username}</a>`);
+    });
     $('form#message_send').submit(function(e) {
         e.preventDefault(); // prevents page reloading
         var message = $('#m').val();

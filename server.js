@@ -54,6 +54,9 @@ app.use((err, req, res, next) => {
 
 io.on('connection', (socket) => {
     console.log('a user connected!!!');
+    socket.on('joinChatRoom', (new_username) => {
+        socket.broadcast.emit('new_user_login', new_username);
+    });
     socket.on('disconnect', () => {
         console.log('user disconnected!!!');
     });
