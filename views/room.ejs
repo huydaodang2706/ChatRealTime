@@ -23,7 +23,7 @@
                     <button class="dropbtn">Account</button>
                     <div class="dropdown-content">
                         <a href="#">
-                            <%= username %>
+                            <%= currentUser.username %>
                         </a>
                         <a href="/logout">Log out</a>
                         <a href="/signup">Sign up</a>
@@ -42,13 +42,7 @@
         <div class="chat_area">
             <div class="message_area" id="message_area">
                 <ul id="messages">
-                    <%  for (let mess of chatMessages){ %>
-                        <li>
-                            <%= mess.username %> :
-                                <%= mess.body %>
-                                    </br>
-                        </li>
-                        <% } %>
+
                 </ul>
             </div>
             <div class="input_area">
@@ -78,11 +72,9 @@
                     <div class="dropdown">
                         <a href="#" onclick="myFunction()" class="dropbtn"><i class="fa fa-users fa-lg fa-fw" aria-hidden="true"></i> Friends</a>
                         <div id="myDropdown" class="dropdown-content">
-                            <% for(let user of listUsers){ %>
-                                <a href="#">
-                                    <%= user.username %>
-                                </a>
-                                <% } %>
+                            <a href="#">Link 1</a>
+                            <a href="#">Link 2</a>
+                            <a href="#">Link 3</a>
                         </div>
                     </div>
                 </li>

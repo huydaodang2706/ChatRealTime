@@ -3,7 +3,22 @@ const User = require('../core/user');
 const Message = require('../core/message');
 const router = express.Router();
 const session = require('express-session');
-const { ReplSet } = require('mongodb');
+const {
+    newRoom,
+    getCurrentRoom,
+    getAllRoom
+} = require('../utils/rooms');
+const {
+    userJoin,
+    getCurrentUser,
+    userLeave,
+    getRoomUsers
+} = require('../utils/users');
+
+const {
+    loginUser,
+    getUsers
+} = require('../utils/login_users.js');
 
 const user = new User();
 const message = new Message();
@@ -35,13 +50,8 @@ router.get('/chatroom', (req, res, next) => {
     message.get(function(result) {
         var user = req.session.currentUser;
         if (req.session.currentUser) {
-            // message.get(function(result) {
-            // console.log(result);
-            // console.log(user);
-            res.render('index', { oop: req.session.oop, username: user.username, user_id: user.user_id, chatMessages: result });
+            res.render('index', { oop: req.session.oop, username: user.username, user_id: user.user_id, chatMessages: result, listUsers: getUsers() });
             return;
-            // });
-
         }
         res.redirect('/');
     });
@@ -59,9 +69,7 @@ router.post('/login', (req, res, next) => {
             }
             req.session.oop = 1;
             res.redirect('/chatroom');
-            // res.render('show', { data: result, test: 'Brain Technology' });
         } else {
-            // res.send('Username/Password incorrect');
             res.redirect('/');
         }
     })
@@ -76,7 +84,6 @@ router.post('/register', (req, res, next) => {
 
     user.create(userInput, function(lastId) {
         if (lastId) {
-            // res.send('Welcome ' + userInput.username + ' password: ' + userInput.password);
             user.find(lastId, function(result) {
                 req.session.currentUser = {
                     username: result.username
@@ -101,35 +108,27 @@ router.get('/logout', (req, res, next) => {
 });
 
 router.post('/message', (req, res, next) => {
-    console.log('Dang o trong post message');
+    if (req.session.currentUser) {
+        var user = req.session.currentUser;
 
-    var user = req.session.currentUser;
-    console.log(user);
+        var data = req.body;
+        message.insert(user.user_id, data.body, function(message) {
+            console.log('Success insert message to db');
+        });
 
-    var data = req.body;
-    console.log(data);
-    message.insert(user.user_id, data.body, function(message) {
-        console.log('Success insert message to db');
-    });
+    }
     return;
 
 });
 
-router.get('/test_message', (req, res, next) => {
-    message.get(function(result) {
-        console.log(result);
-        res.send(result);
-    });
-});
 
-router.get('/test_insert_message', (req, res, next) => {
-    message.insert(8, 'Hello kitty', function(message) {
-        console.log('This is insert action');
-        console.log(message);
-        res.send(message);
-    });
-});
 
+router.get('/make_rooms', (req, res, next) => {
+    if (req.session.currentUser)
+        res.render('rooms', { currentUser: req.session.currentUser, rooms: getAllRoom() });
+    else
+        res.redirect('/');
+});
 
 
 module.exports = router;
