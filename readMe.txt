@@ -3,3 +3,4 @@
 Các hàm trong message core thì ok rồi
 chat từng người 1
 tạo 1 room 
+tạo 2 bảng người dùng

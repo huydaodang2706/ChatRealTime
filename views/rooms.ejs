@@ -6,6 +6,7 @@
     <title>MessageMe</title>
     <link rel="stylesheet" type="text/css" href="/css/login.css" />
     <link rel="stylesheet" type="text/css" href="/css/chatroom.css" />
+    <link rel="stylesheet" type="text/css" href="/css/rooms.css" />
     <link rel="stylesheet" type="text/css" href="/css/dropdown.css" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -23,7 +24,7 @@
                     <button class="dropbtn">Account</button>
                     <div class="dropdown-content">
                         <a href="#">
-                            <%= username %>
+                            <%= currentUser.username %>
                         </a>
                         <a href="/logout">Log out</a>
                         <a href="/signup">Sign up</a>
@@ -39,27 +40,45 @@
     <div class="main_login">
         <img src="/img/cafe4.png" width="120" height="120" class="center" style="margin-top: 20px;">
         <h1 style="text-align: center;">Say something</h1>
-        <div class="chat_area">
-            <div class="message_area" id="message_area">
-                <ul id="messages">
-                    <%  for (let mess of chatMessages){ %>
-                        <li>
-                            <%= mess.username %> :
-                                <%= mess.body %>
-                                    </br>
-                        </li>
+        <div class="controll_area">
+            <input id="user_id" type="text" name="user_id" value="<%= currentUser.user_id %>" style="display: none;">
+            <input id="user_name" type="text" name="user_name" value="<%= currentUser.username %>" style="display: none;">
+            <div class="controll_left_input">
+                <h2>Select room</h2>
+                </br>
+                <form id="select_room">
+                    <select name="room" id="room">
+                        <% for(let room of rooms){ %>
+                            <option value = "<%=room.room_name%>"><%=room.room_name%></option>
                         <% } %>
-                </ul>
-            </div>
-            <div class="input_area">
-                <form id="message_send">
-                    <input id="m" type="text" class="input_field message_input" name="message" placeholder="Enter message..." autocomplete="off">
-                    <input id="user_id" type="text" name="user_id" value="<%= user_id %>" style="display: none;">
-                    <input id="user_name" type="text" name="user_name" value="<%= username %>" style="display: none;">
-                    <button type="submit">
-                        <i class="fa fa-comments fa-lg fa-fw" aria-hidden="true"></i>
-                    </button>
+                    </select>
+                    <input type="submit" value="Join Room">
                 </form>
+            </div>
+
+            <div class="controll_right_input">
+                <h2>Create a room</h2>
+                </br>
+                <form id="create_room">
+                    <input id="room_name" type="text" name="room_name" placeholder="Enter a new room name">
+                    <input type="submit" value="Create Room">
+                </form>
+            </div>
+            <div class="chat_room_area" id="chat_room_area">
+                <div class="message_area" id="message_area">
+                    <ul id="messages" style="text-align: left;">
+                    </ul>
+                </div>
+                <div class="input_area">
+                    <form id="message_send">
+                        <input id="m" type="text" class="input_field message_input" name="message" placeholder="Enter message..." autocomplete="off">
+                        <input id="user_id" type="text" name="user_id" value="<%= currentUser.user_id %>" style="display: none;">
+                        <input id="user_name" type="text" name="user_name" value="<%= currentUser.username %>" style="display: none;">
+                        <button type="submit">
+                            <i class="fa fa-comments fa-lg fa-fw" aria-hidden="true"></i>
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
         <div class="menu_area">
@@ -70,19 +89,15 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/make_rooms">
-                        <i class="fa fa-envelope fa-lg fa-fw" aria-hidden="true"></i> Rooms
+                    <a href="/chatroom">
+                        <i class="fa fa-envelope fa-lg fa-fw" aria-hidden="true"></i> Chat Room
                     </a>
                 </li>
                 <li>
                     <div class="dropdown">
                         <a href="#" onclick="myFunction()" class="dropbtn"><i class="fa fa-users fa-lg fa-fw" aria-hidden="true"></i> Friends</a>
                         <div id="myDropdown" class="dropdown-content">
-                            <% for(let user of listUsers){ %>
-                                <a href="#">
-                                    <%= user.username %>
-                                </a>
-                                <% } %>
+
                         </div>
                     </div>
                 </li>
@@ -92,7 +107,7 @@
     <script src="/socket.io/socket.io.js"></script>
     <script src="/javascript/index.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="/javascript/client.js"></script>
+    <script src="/javascript/rooms.js"></script>
     <script>
         var element = document.getElementById("message_area");
         element.scrollTop = element.scrollHeight;

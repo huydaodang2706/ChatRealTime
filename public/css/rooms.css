@@ -1,0 +1,35 @@
+.controll_area {
+    width: 800px;
+    background-color: #ffffff;
+    float: left;
+    min-height: 200px;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+}
+
+.menu_area {
+    min-height: 200px;
+}
+
+.controll_area .controll_left_input {
+    width: 40%;
+    float: left;
+    text-align: center;
+}
+
+.controll_area .controll_right_input {
+    width: 60%;
+    float: left;
+}
+
+.chat_room_area {
+    float: none;
+    width: 800px;
+    background-color: #ffffff;
+    float: left;
+    min-height: 450px;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19);
+    display: none;
+}
