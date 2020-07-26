@@ -86,7 +86,7 @@ router.post('/register', (req, res, next) => {
         if (lastId) {
             user.find(lastId, function(result) {
                 req.session.currentUser = {
-                    username: result.username
+                    username: result[0].username
                 };
                 req.session.oop = 0;
                 res.redirect('/chatroom');
